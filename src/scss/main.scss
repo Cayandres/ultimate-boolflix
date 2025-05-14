@@ -1,0 +1,13 @@
+@use './partials/vars' as*;
+@import 'bootstrap/scss/bootstrap' ;
+@import '@fontsource/roboto/index.css';
+
+body{
+    font-family: $main-font;
+    //cosi in ogni caso lo vado riempire tutto lo schermo.
+    min-height: 100vh;
+}
+
+h1{
+    font-weight: 700;
+}
