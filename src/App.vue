@@ -23,9 +23,7 @@ export default {
                 }
             })
             .then(result => {
-                store[value] = result.data.results
-                console.log(value, store[value]);
-                
+                store[value] = result.data.results                
             })
         }
     },
@@ -37,11 +35,18 @@ export default {
 
 <template>
     <Search @searched="getApi('tv'), getApi('movie')"/>
-    <Main type="Movie" value="movie"/>
-    <Main type="Tv" value="tv"/>
+    <div class="acContainer">
+        <Main type="Movie" value="movie"/>
+        <Main type="Tv" value="tv"/>
+    </div>
 </template>
 
 <style lang="scss">
 @use './scss/main.scss' as*;
-
+.acContainer{
+    margin: 0 auto;
+    Main{
+        min-width: 1200px;
+    }
+}
 </style>

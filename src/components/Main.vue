@@ -23,9 +23,9 @@ export default {
 </script>
 
 <template>
-    <div class="d-flex row">
+    <div class="cardContainer d-flex row">
         <h1>{{ type }}</h1>
-        <MovieCard v-for="card in store[value]" :key="card.id" :card="card"/>
+        <MovieCard class="card" v-for="card in store[value]" :key="card.id" :card="card"/>
 
     </div>
 </template>
@@ -33,5 +33,8 @@ export default {
 <style lang="scss" scoped>
 h1{
     margin-top: 10px;
+}
+.cardContainer{
+    justify-content: center;
 }
 </style>
