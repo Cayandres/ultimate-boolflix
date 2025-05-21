@@ -34,7 +34,5 @@ export default {
 h1{
     margin-top: 10px;
 }
-.cardContainer{
-    justify-content: center;
-}
+
 </style>

@@ -67,10 +67,14 @@ export default {
             position: absolute;
             top: 0;
             opacity: 0;
-            background-color: black; 
+            background-color: rgba(0, 0, 0, 0.307); 
             &:hover{
                 opacity: 1;
-                background-color: black; 
+                background-color: rgba(0, 0, 0, 0.307); 
+            }
+            .list-group {
+                background-color: rgba(0, 0, 0, 0.307); 
+
             }
         }
         .card-flag{

@@ -16,6 +16,8 @@ export default {
     },
     methods:{
         getApi(value){
+            store.movie = ''
+            store.tv = ''
             axios.get(store.apiUrl + value,{
                 params: {                    
                     api_key: store.apiKey,
@@ -23,8 +25,20 @@ export default {
                 }
             })
             .then(result => {
-                store[value] = result.data.results                
+                store[value] = result.data.results
+                console.log(store.typeToSearch);
+                
             })
+        },
+        getType(type){
+            if (type === 'movie') {
+                this.getApi(type)
+            } else if(type === 'tv'){
+                this.getApi('tv')
+            } else {
+                this.getApi('tv')
+                this.getApi('movie')
+            }
         }
     },
     mounted() {
@@ -34,10 +48,10 @@ export default {
 </script>
 
 <template>
-    <Search @searched="getApi('tv'), getApi('movie')"/>
+    <Search @searched="getType(store.typeToSearch)"/>
     <div class="acContainer">
-        <Main type="Movie" value="movie"/>
-        <Main type="Tv" value="tv"/>
+        <Main v-if="store.movie.length > 0" type="Movie" value="movie"/>
+        <Main v-if="store.tv.length > 0" type="Tv" value="tv"/>
     </div>
 </template>
 
